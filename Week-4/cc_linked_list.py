@@ -33,6 +33,7 @@ class LinkedList:
 
         node = self.head
         self.head = new_node
+        self.head.next = node
         
 
         print("Prepended new Head Node with value: {}".format(self.head.value))
@@ -43,3 +44,6 @@ class LinkedList:
 llist = LinkedList()
 llist.prepend("First Node")
 llist.prepend("Inserted New First Node")
+llist.append("First Node")
+llist.append("Second Node")
+llist.append("Third Node")
