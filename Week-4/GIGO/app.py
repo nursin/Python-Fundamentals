@@ -1,18 +1,22 @@
-from GIGO_GAME_pkg import homepage
+from GIGO_GAME_pkg import homepage, single_player
+import random
 
 homepage.show_homepage()
 
-score = 0
-GIGO_health = 100
-food_list = {}
-complaint_list = []
-blood_sugar = 80
-sob = 0
-chf = 0
-swelling = 0
-weight = 120
-# vitals = {bp: "120/80", hr: "80", oxygen: "100%"}
-
 while True:
-    option = input("Select an option:")
+    option = input("Select an option: ")
     print(option)
+    if option == "1":
+        print("Single player")
+        single_player.game()
+    elif option == "2":
+        print("Mulitple player")
+    elif option == "3":
+        print("Settings")
+    elif option == "4":
+        print("High score")
+    elif option == "5":
+        print("Exiting")
+        break
+    else:
+        print("Invalid option")
