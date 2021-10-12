@@ -5,9 +5,19 @@ def game():
     server = game_objects.Server(complaint_food_lists.food_list)
 
     while True:
-        print(gigo.GIGO_health)
+        print("Health: {}".format(gigo.GIGO_health))
         food_item, food_score = server.serve()
-        print("Feed or Pass: {} ".format(food_item.capitalize()))
-        print(food_score)
-        print(gigo.complain())
-        input()
+        print("Food item: {}".format(food_item.capitalize()))
+        feed = input("Feed or Pass: ")
+
+        if feed == "pass":
+            gigo.complain()
+            print("")
+            continue
+        elif feed == "feed":
+            gigo.score += food_score
+            if food_score == -1:
+                gigo.GIGO_health += food_score
+            print("")
+        else:
+            print("Invalid response\n")

@@ -15,7 +15,7 @@ class GIGO:
         self.complaint_list = complaint_list
 
     def complain(self):
-        return random.choice(self.complaint_list)
+        print(random.choice(self.complaint_list))
 
     def die(self):
         print("GIGO has died!")
