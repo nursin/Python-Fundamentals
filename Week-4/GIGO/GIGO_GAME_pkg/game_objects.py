@@ -29,4 +29,26 @@ class Server:
         food_score = self.food_list[food_item]
         return [food_item, food_score]
 
-            
+class CPR:
+    def __init__(self):
+        pass
+
+    def revive(self):
+        count = 0
+        num = random.randint(1, 100)
+        while count < 6:
+            guess = int(input("Enter a number between 1 - 100: "))
+
+            if guess == num:
+                return True
+            elif count == 5:
+                return False
+            elif guess > num:
+                print("Too high")
+            elif guess < num:
+                print("Too low")
+            else:
+                print("Guess again")
+            count += 1
+        
+        
