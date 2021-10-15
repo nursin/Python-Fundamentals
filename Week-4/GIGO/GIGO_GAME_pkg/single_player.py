@@ -1,8 +1,13 @@
 from GIGO_GAME_pkg import complaint_food_lists, game_objects
 import random
 
-def game():
-    gigo = game_objects.GIGO(0, 100, 80, 0, 0, 0, 120, complaint_food_lists.complaint_list)
+def game(settings):
+    health = 100
+    weight = 120
+    if settings:
+        health = settings[0]
+        weight = settings[1]
+    gigo = game_objects.GIGO(0, health, 80, 0, 0, 0, weight, complaint_food_lists.complaint_list)
     server = game_objects.Server(complaint_food_lists.food_list)
     revive = game_objects.CPR()
     while True:
@@ -19,7 +24,7 @@ def game():
         elif feed == "feed":
             gigo.score += food_score
             if food_score == -1:
-                gigo.GIGO_health += -5
+                gigo.GIGO_health += -50
             elif food_score == 1:
                 gigo.score += random.randint(1, 10)
             print("")
@@ -43,6 +48,7 @@ def game():
                 print("CPR failed!")
                 print("Your score: {}".format(gigo.score))
                 input("Press enter to continue")
-                break
+                score = gigo.score
+                return score
         else:
             continue
